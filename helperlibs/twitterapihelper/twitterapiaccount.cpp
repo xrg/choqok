@@ -68,6 +68,9 @@ TwitterApiAccount::TwitterApiAccount(TwitterApiMicroBlog* parent, const QString 
     d->oauthTokenSecret = Choqok::PasswordManager::self()->readPassword(
                                             QString("%1_tokenSecret").arg(alias) ).toUtf8();
     setApi( configGroup()->readEntry("Api", QString('/') ) );
+    if(api() != "1.1") {
+      setApi("1.1");
+    }
 
     kDebug()<<"UsingOAuth: "<<d->usingOauth;
     if(d->usingOauth){
