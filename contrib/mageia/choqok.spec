@@ -1,11 +1,15 @@
+%define git_repo choqok
+%define git_head HEAD
+
 %define     rel 5
 
 Name:		choqok
-Version:	1.3
-Release:	%mkrel %rel
+Version:	%git_get_ver
+Release:	%mkrel %git_get_rel2
 Summary:	KDE Micro-Blogging Client
-Source0:	http://downloads.sourceforge.net/project/choqok/Choqok/%{name}-%{version}.tar.bz2
-Patch0:		choqok-0.9.85-dbus-service-dir.patch
+Source:		%git_bs_source %{name}-%{version}.tar.gz
+Source1:	%{name}-gitrpm.version
+Source2:	%{name}-changelog.gitrpm.txt
 License:	GPLv3
 Group:		Networking/News
 Url:		http://choqok.gnufolks.org/
@@ -83,6 +87,7 @@ based on %name.
 #--------------------------------------------------------------------
 
 %prep
+%git_get_source
 %setup -q
 %patch0 -p0
 
