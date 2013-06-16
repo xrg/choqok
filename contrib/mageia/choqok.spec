@@ -1,8 +1,6 @@
 %define git_repo choqok
 %define git_head HEAD
 
-%define     rel 5
-
 Name:		choqok
 Version:	%git_get_ver
 Release:	%mkrel %git_get_rel2
@@ -89,7 +87,6 @@ based on %name.
 %prep
 %git_get_source
 %setup -q
-%patch0 -p0
 
 %build
 %cmake_kde4
