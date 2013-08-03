@@ -40,9 +40,9 @@ TwitterAccount::TwitterAccount(TwitterMicroBlog* parent, const QString &alias)
     : TwitterApiAccount(parent, alias), d(new Private)
 {
     setHost("https://api.twitter.com");
-    setUploadHost("https://upload.twitter.com");
+    setUploadHost("https://api.twitter.com");
     setApi("1.1");
-    std::cout << "Set API version to 1.1" << std::endl;
+    kDebug() << "Set API version to 1.1";
 //     d->lists = configGroup()->readEntry("lists", QStringList());
     QStringList lists;
     foreach(const QString & tm, timelineNames()){
